@@ -68,7 +68,7 @@ L'interface a été pensée pour être utilisée sur un second écran pendant vo
 * **Recherche Rapide :** Utilisez la barre de recherche située au-dessus du tableau pour filtrer instantanément les cultures par nom (ex: tapez "Soja" pour ne voir que cette ligne).
 * **Tri Intelligent :** Cliquez sur les en-têtes de colonnes (*Type, Semence, Récolte...*) pour trier les données.
     * *Note : Le tri des mois respecte l'ordre chronologique (Janvier avant Février) et non l'ordre alphabétique.*
-    * 
+   
 <img width="1920" height="739" alt="image" src="https://github.com/user-attachments/assets/fc5c230e-cc83-4374-860a-4b89259fe305" />
 
 
