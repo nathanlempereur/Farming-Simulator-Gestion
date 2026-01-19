@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Farming Simulator Gestion</title>
+        <link href="style/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    Farming Simulator Gestion <span>🚜</span>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/calculatrice.html">Calcul de mes récoltes</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+        <div class="container">   
+            <h1 class="h3 mb-3 font-weight-normal">Calcule de revenue :</h1>
+
+            <div class="revenue-calculator">
+    
+                <div class="calc-inputs">
+                    <div class="input-group">
+                        <label for="qtyInput"><i class="fa-solid fa-wheat-awn"></i> Quantité (Litres)</label>
+                        <input type="number" id="qtyInput" placeholder="Ex: 15000" oninput="calculerRevenu()">
+                    </div>
+
+                    <div class="operator">×</div>
+
+                    <div class="input-group">
+                        <label for="priceInput"><i class="fa-solid fa-euro-sign"></i> Prix (pour 1000L)</label>
+                        <input type="number" id="priceInput" placeholder="Ex: 350" oninput="calculerRevenu()">
+                    </div>
+                </div>
+
+                <div class="calc-result">
+                    <span class="label">Revenu Estimé :</span>
+                    <span id="finalResult" class="amount">0,00 €</span>
+                </div>
+            </div>  
+        </div>
+        </main>
+    </body>
+
+    <script>
+        function calculerRevenu() {
+            // 1. Récupération des valeurs
+            const qty = parseFloat(document.getElementById('qtyInput').value) || 0;
+            const price = parseFloat(document.getElementById('priceInput').value) || 0;
+
+            // 2. La formule : (Quantité * Prix) / 1000
+            const total = (qty * price) / 1000;
+
+            // 3. Affichage formaté en Euros
+            const resultatElement = document.getElementById('finalResult');
+            resultatElement.textContent = total.toLocaleString('fr-FR', { 
+                style: 'currency', 
+                currency: 'EUR',
+                maximumFractionDigits: 2 
+            });
+
+            // Petit changement de couleur si on gagne de l'argent
+            if (total > 0) {
+                resultatElement.style.color = "#27ae60"; // Vert succès
+            } else {
+                resultatElement.style.color = "#7f8c8d"; // Gris neutre
+            }
+        }
+        </script>
+    </body>
+</html>

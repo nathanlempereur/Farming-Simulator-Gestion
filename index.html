@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Farming Simulator Gestion</title>
+        <link href="style/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    Farming Simulator Gestion <span>🚜</span>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/calculatrice.html">Calcul de mes récoltes</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+        <div class="container">   
+            <h1 class="h3 mb-3 font-weight-normal">Liste des cultures & infos</h1>
+            
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" onkeyup="rechercherCulture()" placeholder="Rechercher une culture (ex: Soja)...">
+            </div>
+            
+
+            <table id="monTableau">
+                <thead>
+                    <tr>
+                        <th scope="col" class="ps-4 sortable" onclick="trierTableau(0)">
+                            Type <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th scope="col" class="text-center sortable" onclick="trierTableau(1)">
+                            Semence <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th scope="col" class="text-center sortable" onclick="trierTableau(2)">
+                            Récolte <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th scope="col" class="text-center sortable" onclick="trierTableau(3)">
+                            Revente Max <i class="fa-solid fa-sort"></i>
+                        </th>
+                        <th scope="col">
+                            Les fluctuations de prix
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody id="tableBody">
+                    <tr class="content">
+                        <td>Blé</td>
+                        <td>Septembre-Octobre</td>
+                        <td>Juillet-Août</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/ble.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Orge</td>
+                        <td>Septembre-Octobre</td>
+                        <td>Juin-Juillet</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/orge.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Colza</td>
+                        <td>Août-Septembre</td>
+                        <td>Juillet-Août</td>
+                        <td>Décembre</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/colza.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Avoine</td>
+                        <td>Mars-Avril</td>
+                        <td>Juillet-Août</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/avoine.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Maïs</td>
+                        <td>Avril-Mai</td>
+                        <td>Octobre-Novembre</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/maïs.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Tournesols</td>
+                        <td>Mars-Avril</td>
+                        <td>Octobre-Novembre</td>
+                        <td>Mars</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/tournesols.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Soja</td>
+                        <td>Avril-Mai</td>
+                        <td>Octobre-Novembre</td>
+                        <td>Juillet</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/soja.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Pomme de Terre</td>
+                        <td>Mars-Avril</td>
+                        <td>Août-Septembre</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/pomme-de-terre.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Betterave sucrière</td>
+                        <td>Mars-Avril</td>
+                        <td>Octobre-Novembre</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/betterave-sucriere.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Canne à sucre</td>
+                        <td>Mars-Avril</td>
+                        <td>Octobre-Novembre</td>
+                        <td>Août</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/canne-a-sucre.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Coton</td>
+                        <td>Février-Mars</td>
+                        <td>Août-Septembre</td>
+                        <td>Mars</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/coton.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Sorgho</td>
+                        <td>Avril-Mai</td>
+                        <td>Octobre-Novembre</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/sorgho.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Raisin</td>
+                        <td>Mars-Mai</td>
+                        <td>Septembre-Octobre</td>
+                        <td>Mai</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/raisin.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Olives</td>
+                        <td>Mars-Juin</td>
+                        <td>Octobre</td>
+                        <td>Juin</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/olives.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Radis</td>
+                        <td>Mars-Octobre</td>
+                        <td>Janvier-Décembre</td>
+                        <td>?</td>
+                        <td></td>
+                    </tr>
+                    <tr class="content">
+                        <td>Betterave rouge</td>
+                        <td>Avril-Juin</td>
+                        <td>Août-Novembre</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/betterave-rouge.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Carotte</td>
+                        <td>Avril-Juillet</td>
+                        <td>Août-Novembre</td>
+                        <td>Juillet & Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/carotte.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="content">
+                        <td>Panais</td>
+                        <td>Avril-Juin</td>
+                        <td>Août-Octobre</td>
+                        <td>Janvier</td>
+                        <td>
+                            <div class="div-boutons">
+                                <a href="graphes/panais.html" class="btn-grph">
+                                    Voir le Graphe 📈
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+
+        </main>
+    </body>
+
+    <script>
+    // 1. FONCTION DE RECHERCHE
+    function rechercherCulture() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("monTableau");
+        tr = table.getElementsByTagName("tr");
+
+        // On boucle sur toutes les lignes (sauf le header)
+        for (i = 1; i < tr.length; i++) {
+            // On cherche dans la 1ère colonne (Nom de la culture)
+            td = tr[i].getElementsByTagName("td")[0]; 
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+    }
+
+    // 2. FONCTION DE TRI (INTELLIGENT POUR LES MOIS)
+    
+    // Petit dictionnaire pour convertir les mois en chiffres
+    const ordreMois = {
+        "janvier": 1, "février": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6,
+        "juillet": 7, "août": 8, "aout": 8, "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12
+    };
+
+    function getMonthValue(text) {
+        // Nettoie le texte, prend le premier mot (ex: "Septembre-Octobre" -> "septembre")
+        let premierMot = text.trim().split(/[- &]/)[0].toLowerCase();
+        return ordreMois[premierMot] || 99; // 99 si pas trouvé (met à la fin)
+    }
+
+    function trierTableau(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("monTableau");
+        switching = true;
+        dir = "asc"; // Direction de départ : Ascendant
+
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+
+            // On boucle sur les lignes (on saute le header : i=1)
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                
+                // Comparaison de deux lignes consécutives
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+
+                var xContent = x.innerText.trim();
+                var yContent = y.innerText.trim();
+
+                // LOGIQUE DE COMPARAISON
+                var xVal, yVal;
+
+                // Si c'est la colonne 0 (Nom), on compare du texte
+                if (n === 0) {
+                    xVal = xContent.toLowerCase();
+                    yVal = yContent.toLowerCase();
+                } 
+                // Sinon (Colonnes mois), on utilise la valeur du mois
+                else {
+                    xVal = getMonthValue(xContent);
+                    yVal = getMonthValue(yContent);
+                }
+
+                // Vérification selon la direction (ASC ou DESC)
+                if (dir == "asc") {
+                    if (xVal > yVal) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (xVal < yVal) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+
+            if (shouldSwitch) {
+                // On inverse les lignes
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount ++;      
+            } else {
+                // Si aucun changement n'a été fait et qu'on était en "asc", on passe en "desc"
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
+    </script>
+</html>

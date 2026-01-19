@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fluctuation de la Carotte</title>
+        <link href="style/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    Farming Simulator Gestion <span>🚜</span>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/calculatrice.html">Calcul de mes récoltes</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">   
+                <h1 class="h3 mb-3 font-weight-normal">Fluctuation des prix de la Carotte</h1>
+        
+                <div style="position: relative; height: 50vh; width: 100%;">
+                    <canvas id="graphiqueCarotte"></canvas>
+                </div>
+
+                <p style="margin-top: 20px; font-size: 0.9em; color: #666;">* Indice de prix basé sur une moyenne.</p>
+            </div> 
+        </main>
+
+
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('graphiqueCarotte');
+
+        new Chart(ctx, {
+            type: 'line', // Type de graph : 'line' (courbe) ou 'bar' (bâtons)
+            data: {
+                // Axe X : Les 12 mois
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+                datasets: [{
+                    label: 'Indice du Prix (Carotte)',
+                
+                    // --- C'EST ICI QUE TU MODIFIES TES DONNÉES (0 à 10) ---
+                    data: [8.6, 5.1, 6.5, 6.1, 5.8, 6.8, 8.4, 4.9, 4.1, 2.4, 1.4, 4.4], 
+                    // ------------------------------------------------------
+
+                    borderColor: '#E67E22', // Couleur de la ligne (Orange Méca)
+                    backgroundColor: 'rgba(230, 126, 34, 0.2)', // Couleur sous la ligne (optionnel)
+                    borderWidth: 3,     // Épaisseur ligne
+                    tension: 0.4,       // 0 = ligne droite, 0.4 = courbe douce
+                    pointRadius: 5,     // Taille des points
+                    pointHoverRadius: 8, // Taille au survol
+                    fill: true          // Remplir sous la courbe (true/false)
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10, // Force l'axe Y à s'arrêter à 10
+                        title: {
+                            display: true,
+                            text: 'Rentabilité / Prix (0-10)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Mois de l\'année'
+                        }
+                    }
+                },
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            }
+        }
+    );
+</script>
+    
+</html>

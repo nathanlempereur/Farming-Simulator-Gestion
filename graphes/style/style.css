@@ -1,0 +1,176 @@
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------- Style de Base ------------------------------------------------------------------ */
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* public/css/style.css */
+/* -------------------------------------------------------------------------- */
+/* CONFIGURATION GLOBALE & VARIABLES                                          */
+/* -------------------------------------------------------------------------- */
+
+:root {
+    /* Palette de couleurs */
+    --primary-color: #2C5F2D;       /* Vert Forêt (Header) */
+    --primary-color-clair: #377938; /* Vert Forêt plus clair (Nav bar) */
+    --accent-color: #E67E22;        /* Orange Méca (Actions/Boutons) */
+    --text-color: #2C3E50;          /* Gris Foncé (Texte principal) */
+    --violet: #5222c0;              /* violet (bouton de survol) */
+    --bg-color: #dfdfdf;            /* Blanc Cassé (Fond de page) */
+    --white: #FFFFFF;               /* Blanc pur (Cartes/Conteneurs) */
+    
+    /* Espacements standards */
+    --spacing-sm: 10px; /* Petit */
+    --spacing-md: 20px; /* Moyen */
+    --spacing-lg: 30px; /* Grand */
+}
+
+/* Normalisation du modèle de boîte : 
+   Garantit que le padding n'augmente pas la largeur totale des éléments. */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    /* On remplace le gris fade par un dégradé subtil très clair */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); 
+    /* Alternative plus "Nature" si tu préfères : */
+    /* background: radial-gradient(circle at center, #f1f8e9 0%, #dcedc8 100%); */
+    
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    min-height: 100vh; /* Assure que le fond prend tout l'écran */
+}
+
+/* -------------------------------------------------------------------------- */
+/* EN-TÊTE & NAVIGATION                                                       */
+/* -------------------------------------------------------------------------- */
+
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem;
+    /* Suppression des marges pour coller au haut de page */
+    width: 100%; /* On force à prendre toute la largeur */ 
+}
+
+.logo {
+    font-size: 24px; /* Taille de police plus grande pour le logo */
+    margin: var(--spacing-sm); /* Marge petite autour pour un effet de cadre*/
+    text-align: center; /* Centré par défaut pour mobile */
+    font-weight: bold; /* Met en valeur le logo */
+    display: block; /* Assure que le margin fonctionne correctement comme un block*/
+}
+
+nav {
+    margin: 5px auto; /* Centrage horizontal avec auto */
+    padding: var(5px); /* Espacement petit */
+    max-width: 1200px; /* Largeur maximale pour les grands écrans */
+    width: 95%; /* Prend 95% de la largeur sur mobile, max 1200px sur pc */
+    
+    /* Esthétique */
+    background-color: var(--primary-color-clair);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    
+    
+    transition: all 0.3s ease;  /* Transition fluide */
+}
+
+nav ul {
+    list-style: none; /* Supprime les points */
+    margin: 0;
+    padding: 10px;
+    
+    /* Flexbox pour l'alignement */
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center;
+    flex-wrap: wrap; /* Permet le retour à la ligne si l'espace manque */
+    gap: 15px; /* Espacement moderne entre les éléments flex */
+}
+
+/* Styles des liens de navigation */
+.nav-links a, nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold; /* Met en valeur les liens */
+    padding: 10px 20px; 
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transitions pour les interactions */
+    display: inline-block; /* Assure que le padding est respecté */
+}
+
+/* Interaction : Survol et Focus (Accessibilité) */
+.nav-links a:hover, 
+.nav-links a:focus {
+    background: rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px); /* Petit effet de soulèvement */
+    outline: none; /* Supprime le contour bleu par défaut */
+}
+
+/* -------------------------------------------------------------------------- */
+/* CONTENEURS DE CONTENU ({% block body %})                                   */
+/* -------------------------------------------------------------------------- */
+
+.container {
+    background-color: var(--white);
+    padding: 30px 40px; /* Plus d'espace interne */
+    width: 90%; 
+    max-width: 1200px;
+    margin: 40px auto; /* Plus d'espace externe */
+    
+    /* Ombre portée plus douce et diffuse (Effet "Carte moderne") */
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15);
+    border-radius: 12px; /* Arrondis un peu plus prononcés */
+    border-top: 5px solid var(--accent-color); /* Petite touche de couleur orange en haut */
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIVE                                                                 */
+/* -------------------------------------------------------------------------- */
+
+/* Pour les tablettes et mobiles (écrans inférieurs à 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* Ajustement de la navbar */
+    nav {
+        width: 100%; /* Pleine largeur sur mobile */
+        margin: 0;   /* On colle aux bords */
+        border-radius: 0; /* On retire les bords arrondis sur les côtés */
+        margin-top: 10px;
+    }
+
+    nav ul {
+        flex-direction: column; /* Empile les liens verticalement */
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-links a, nav a {
+        display: block;     /* Le lien prend toute la largeur disponible */
+        width: 100%;        /* Zone de clic maximale pour le tactile */
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    /* Ajustement du conteneur principal */
+    .container {
+        width: 95%; /* Plus large sur mobile pour ne pas perdre d'espace */
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    /* Ajustement du logo */
+    .logo {
+        margin: 10px 0;
+        font-size: 20px; /* Légèrement plus petit */
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------------------------------- */
+
