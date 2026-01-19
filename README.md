@@ -94,7 +94,7 @@ Utilisez cet outil pour savoir exactement combien votre remorque va vous rapport
 * [LinkedIn](https://www.linkedin.com/in/nathan-lempereur-989624373)
 * [Site Web](https://nlempereur.ovh)
 
-  Ce projet a été conçu dans un but pédagogique et est Open-Source, vous pouvez le modifier, l’améliorer et proposer des mises à jour.
+  Ce projet a été conçu dans un but pédagogique (Les valeurs ne sont que des moyennes de généralité il ce peut donc qu'elles ne correspondent pas exactement...) et est Open-Source, vous pouvez le modifier, l’améliorer et proposer des mises à jour.
 
 ---
 
