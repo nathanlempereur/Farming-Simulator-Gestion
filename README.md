@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Status](https://img.shields.io/badge/status-En%20D%C3%A9veloppement-orange)
+![Status](https://img.shields.io/badge/status-Libre-orange)
 
 <img width="1919" height="792" alt="image" src="https://github.com/user-attachments/assets/05ca17ee-899f-4f6f-8820-41d7947d9d67" />
 
